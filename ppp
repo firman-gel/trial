@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perkenalan – Mahasiswa Ilmu Komputer/AI IPB</title>
+  <meta name="description" content="Halaman perkenalan diri sebagai mahasiswa Ilmu Komputer/Kecerdasan Buatan IPB University." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --muted: #1a213a;
+      --card: #121b33;
+      --text: #e8eefc;
+      --subtle: #a6b3d9;
+      --brand: #6ea8fe;
+      --accent: #8be9d1;
+      --ring: #9dbbff88;
+    }
+    :root[data-theme="light"] {
+      --bg: #f7f9ff;
+      --muted: #edf2ff;
+      --card: #ffffff;
+      --text: #111827;
+      --subtle: #4b5563;
+      --brand: #3b82f6;
+      --accent: #10b981;
+      --ring: #3b82f644;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% -10%, #23305766, transparent 60%),
+                  radial-gradient(1000px 700px at -10% 10%, #1b7fb844, transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { width: min(1100px, 90vw); margin: 0 auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: saturate(140%) blur(8px);
+      background: color-mix(in oklab, var(--bg) 90%, transparent);
+      border-bottom: 1px solid var(--ring);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+    .brand { display: flex; gap: 12px; align-items: center; }
+    .brand .logo {
+      width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--brand), var(--accent)); color: #081020; font-weight: 800;
+      box-shadow: 0 10px 20px -10px var(--ring);
+    }
+    .brand h1 { font-size: 18px; margin: 0; letter-spacing: .2px; }
+    .nav a { color: var(--subtle); text-decoration: none; margin: 0 10px; }
+    .nav a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+      background: linear-gradient(180deg, var(--brand), color-mix(in oklab, var(--brand) 80%, #000 20%));
+      color: white; border: 0; padding: 10px 14px; border-radius: 12px; font-weight: 600;
+      box-shadow: 0 10px 20px -8px var(--ring);
+    }
+    .btn.secondary { background: var(--muted); color: var(--text); box-shadow: inset 0 0 0 1px var(--ring); }
+
+    .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; padding: 36px 0 24px; align-items: center; }
+    .card { background: color-mix(in oklab, var(--card) 85%, transparent); border: 1px solid var(--ring); border-radius: 20px; padding: 22px; box-shadow: 0 20px 60px -30px var(--ring); }
+
+    h2 { margin: 0 0 12px; font-size: 26px; }
+    h3 { margin: 0 0 8px; font-size: 18px; color: var(--subtle); font-weight: 600; }
+    p { margin: 0 0 10px; }
+
+    .profile {
+      display: grid; grid-template-columns: 90px 1fr; gap: 16px; align-items: center; margin-bottom: 10px;
+    }
+    .avatar { width: 90px; height: 90px; border-radius: 18px; overflow: hidden; border: 2px solid var(--ring); }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .tag { background: var(--muted); border: 1px solid var(--ring); padding: 6px 10px; border-radius: 999px; font-size: 12px; }
+
+    .grid { display: grid; gap: 18px; }
+    .cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .cols-3 { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 880px) {
+      .hero { grid-template-columns: 1fr; }
+      .cols-2, .cols-3 { grid-template-columns: 1fr; }
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px dashed var(--ring); }
+    th { color: var(--subtle); font-weight: 600; width: 200px; }
+
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 14px; border: 1px solid var(--ring); }
+
+    footer { color: var(--subtle); padding: 28px 0 36px; text-align: center; }
+
+    /* micro animations */
+    @keyframes floatIn { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: translateY(0) } }
+    .card { animation: floatIn .6s ease both; }
+    .card:nth-child(2) { animation-delay: .05s }
+    .card:nth-child(3) { animation-delay: .1s }
+    .card:nth-child(4) { animation-delay: .15s }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">AI</div>
+        <h1>Perkenalan Mahasiswa Ilmu Komputer / AI – IPB University</h1>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button id="themeToggle" class="btn secondary" title="Ganti tema">🌓 <span class="sr-only">Ganti tema</span></button>
+        <a class="btn" href="#kontak">📬 Kontak</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card">
+        <div class="profile">
+          <div class="avatar">
+            <!-- Ganti URL foto profil di bawah ini -->
+            <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=600&auto=format&fit=crop" alt="Foto profil mahasiswa" loading="lazy" />
+          </div>
+          <div>
+            <!-- 📝 Ganti teks biodata utama di sini -->
+            <h2 id="nama">Muhammad Firman Fadhlurrahman</h2>
+            <p style="margin-top:-4px; color:var(--subtle)">Mahasiswa Program Studi <strong>Kecerdasan Buatan</strong> – IPB University</p>
+          </div>
+        </div>
+        <p>
+          Halo! Saya <strong>Firman</strong>, mahasiswa yang tertarik pada <em>Artificial Intelligence</em>, 
+          <em>data science</em>, dan pengembangan perangkat lunak.
+          Saya senang berkolaborasi dalam proyek yang berdampak dan eksplorasi teknologi baru.
+        </p>
+        <div class="tags">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Web Dev</span>
+          <span class="tag">Organisasi Kampus</span>
+          <span class="tag">Problem Solving</span>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;">
+          <a class="btn" href="#biodata">📄 Lihat Biodata</a>
+          <a class="btn secondary" href="#karya">🧩 Portofolio Ringkas</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Ringkasan Singkat</h3>
+        <p>• Aktif di organisasi kampus dan event kolaboratif.<br>
+           • Minat riset: <em>computer vision</em>, <em>LLM</em>, dan <em>AI for Education</em>.<br>
+           • Target: membangun produk AI yang membantu pembelajaran.</p>
+        <div style="margin-top:10px">
+          <a class="btn" href="https://www.ipb.ac.id/" target="_blank" rel="noopener">🌐 IPB University</a>
+          <button class="btn secondary" onclick="copyEmail()">📧 Salin Email</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIODATA -->
+    <section id="biodata" class="grid cols-2">
+      <div class="card">
+        <h2>📇 Biodata</h2>
+        <table>
+          <tr><th>Nama Lengkap</th><td>Muhammad Firman Fadhlurrahman</td></tr>
+          <!-- 📝 Ganti NIM di bawah ini -->
+          <tr><th>NIM</th><td><span id="nim">GANTI_DENGAN_NIM_ANDA</span></td></tr>
+          <tr><th>Program Studi</th><td>Ilmu Komputer / Kecerdasan Buatan</td></tr>
+          <!-- 📝 Ganti nama proxy sesuai instruksi tugas -->
+          <tr><th>Nama Proxy</th><td><span id="proxy">GANTI_DENGAN_NAMA_PROXY</span></td></tr>
+          <tr><th>Fakultas</th><td>Sekolah Sains Data, Matematika, dan Informatika</td></tr>
+          <tr><th>Universitas</th><td>IPB University</td></tr>
+          <tr><th>Email</th><td><a id="email" href="mailto:firmaaaan@example.com">firmaaaan@example.com</a></td></tr>
+          <tr><th>Domisili</th><td>Bogor, Indonesia</td></tr>
+        </table>
+      </div>
+
+      <div class="card" id="karya">
+        <h2>🧩 Portofolio Ringkas</h2>
+        <ul style="margin: 0 0 8px 18px; padding: 0;">
+          <li>Aplikasi web sederhana untuk manajemen tugas kelompok.</li>
+          <li>Model klasifikasi gambar (CNN) untuk dataset sederhana.</li>
+          <li>Script otomatisasi analisis data menggunakan Python.</li>
+        </ul>
+        <p style="color:var(--subtle); margin-top:6px">*Sesuaikan isi dengan karya/proyek Anda sendiri.</p>
+      </div>
+    </section>
+
+    <!-- TAUTAN & KONTAK -->
+    <section id="kontak" class="grid cols-3" style="margin-top: 6px;">
+      <div class="card">
+        <h2>🔗 Tautan</h2>
+        <p>
+          <a href="#" target="_blank" rel="noopener">GitHub</a> •
+          <a href="#" target="_blank" rel="noopener">LinkedIn</a> •
+          <a href="#" target="_blank" rel="noopener">Instagram</a>
+        </p>
+        <p style="color:var(--subtle)">*Ganti tanda # dengan URL profil Anda.</p>
+      </div>
+
+      <div class="card">
+        <h2>📬 Kontak</h2>
+        <form onsubmit="event.preventDefault(); alert('Terima kasih! Pesan demo terkirim (non-aktif).');">
+          <label class="sr-only" for="nama">Nama</label>
+          <input id="namaForm" placeholder="Nama" required style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--ring); background:var(--muted); color:var(--text); margin-bottom:10px" />
+
+          <label class="sr-only" for="pesan">Pesan</label>
+          <textarea id="pesan" placeholder="Pesan" rows="3" required style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--ring); background:var(--muted); color:var(--text); margin-bottom:10px"></textarea>
+
+          <button class="btn" type="submit">Kirim Pesan</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>🖼️ Galeri</h2>
+        <div class="gallery">
+          <!-- Ganti gambar berikut sesuai kebutuhan -->
+          <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=600&auto=format&fit=crop" alt="Coding" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop" alt="Laptop" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop" alt="Workspace" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- CATATAN TUGAS -->
+    <section class="card" style="margin-top: 6px;">
+      <h2>📝 Catatan Tugas</h2>
+      <ol style="margin-left: 18px;">
+        <li>Halaman ini memakai tag <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;table&gt;</code>, dan lainnya sesuai instruksi.</li>
+        <li>CSS dan JavaScript disisipkan <em>inline</em> agar cukup satu file HTML.</li>
+        <li>Silakan ganti bagian bertanda <strong>GANTI_...</strong> sesuai data Anda (NIM, nama proxy, foto, tautan, dsb.).</li>
+        <li>Siap diunggah ke repository GitHub berstatus <strong>Public</strong>.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Dibuat untuk tugas perkenalan diri – Ilmu Komputer/Kecerdasan Buatan IPB University.</p>
+      <small id="lastUpdate">Terakhir diperbarui: </small>
+    </div>
+  </footer>
+
+  <script>
+    // Tema terang/gelap dengan localStorage
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved) root.setAttribute('data-theme', saved);
+    const btn = document.getElementById('themeToggle');
+    btn.addEventListener('click', () => {
+      const now = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', now);
+      localStorage.setItem('theme', now);
+    });
+
+    // Tampilkan waktu update
+    const d = new Date();
+    document.getElementById('lastUpdate').textContent += d.toLocaleString('id-ID', { dateStyle: 'long', timeStyle: 'short' });
+
+    // Salin email ke clipboard
+    function copyEmail() {
+      const email = document.getElementById('email').textContent.trim();
+      navigator.clipboard.writeText(email).then(() => {
+        alert('Email disalin: ' + email);
+      }).catch(() => alert('Gagal menyalin email'));
+    }
+    window.copyEmail = copyEmail;
+  </script>
+</body>
+</html>
